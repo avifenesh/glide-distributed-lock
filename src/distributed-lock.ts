@@ -21,7 +21,7 @@ const DEFAULT_LOCK_TTL_SECONDS = 10;
 
 // Lua script for atomic lock release - ensures only lock owner can release
 const releaseLockScript = new Script(
-    `if redis.call("get", ARGV[1]) == ARGV[2] then return redis.call("del", ARGV[1]) else return 0 end`
+    `if server.call("get", ARGV[1]) == ARGV[2] then return redis.call("del", ARGV[1]) else return 0 end`
 );
 
 /**
