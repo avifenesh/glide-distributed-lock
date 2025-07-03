@@ -1,0 +1,43 @@
+{
+  "name": "valkey-glide-distributed-lock",
+  "version": "1.0.0",
+  "description": "A robust distributed lock implementation for Valkey cluster",
+  "main": "dist/distributed-lock.js",
+  "types": "dist/distributed-lock.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "start": "node dist/example.js",
+    "example": "npm run build && npm run start",
+    "clean": "rm -rf dist"
+  },
+  "keywords": [
+    "valkey-glide",
+    "valkey",
+    "redis-OSS",
+    "distributed-lock",
+    "cluster",
+    "typescript",
+    "concurrency"
+  ],
+  "author": "Your Name",
+  "license": "Apache-2.0",
+  "dependencies": {
+    "@valkey/valkey-glide": "2.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "24.0.10",
+    "typescript": "^5.0.0"
+  },
+  "files": [
+    "dist/**/*",
+    "README.md",
+    "LICENSE"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "your-repo-url"
+  },
+  "engines": {
+    "node": ">=16.0.0"
+  }
+}

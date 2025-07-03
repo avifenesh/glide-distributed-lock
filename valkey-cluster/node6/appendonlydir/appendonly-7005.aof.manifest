@@ -1,0 +1,2 @@
+file appendonly-7005.aof.2.base.rdb seq 2 type b
+file appendonly-7005.aof.2.incr.aof seq 2 type i
