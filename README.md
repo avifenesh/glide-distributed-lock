@@ -185,8 +185,8 @@ Locks use the pattern `lock:{key}` to avoid conflicts with your application data
 Lock release uses a Lua script to ensure atomicity:
 
 ```lua
-if redis.call("get", ARGV[1]) == ARGV[2] then 
-    return redis.call("del", ARGV[1]) 
+if server.call("get", ARGV[1]) == ARGV[2] then 
+    return server.call("del", ARGV[1]) 
 else 
     return 0 
 end
