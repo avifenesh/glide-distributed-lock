@@ -13,9 +13,16 @@ A robust, production-ready distributed lock implementation for Valkey cluster us
 
 ## Installation
 
+The library is not published to npm. Clone and build it:
+
 ```bash
-npm install @valkey/valkey-glide
+git clone https://github.com/avifenesh/glide-distributed-lock.git
+cd glide-distributed-lock
+npm install
+npm run build
 ```
+
+The only runtime dependency is `@valkey/valkey-glide` 2.0.1.
 
 ## Quick Start
 
@@ -145,7 +152,7 @@ if (success) {
 const result = await lock.withLock("user_counter", async () => {
     // Get current count
     const current = await client.get("counter") || "0";
-    const newValue = (parseInt(current) + 1).toString();
+    const newValue = (parseInt(current.toString()) + 1).toString();
     
     // Set new count
     await client.set("counter", newValue);
@@ -225,11 +232,15 @@ try {
 
 ## Testing
 
-Run the example to test the implementation:
+`./setup-cluster.sh` starts a local 6-node cluster (3 primaries, 3 replicas) on ports 7000-7005. It writes node data to `/home/ubuntu/valkey-cluster`; edit `CLUSTER_DIR` in both scripts to change that. `./stop-cluster.sh` stops it.
+
+Run the example against that cluster to test the implementation:
 
 ```bash
 npm run build && node dist/example.js
 ```
+
+`npm test` runs a dependency regression check. It does not need a cluster.
 
 ## Requirements
 
